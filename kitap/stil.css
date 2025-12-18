@@ -1,0 +1,62 @@
+:root{
+    --clr-raf:#8B5A2B;
+    --clr-rafgolge:#e0c8c871;
+    --clr-link: #A52A2A;
+    --clr-header: #c9b287;
+    --clr-footer:#af9056;
+    --clr-duvar: #562c05;   
+} 
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: var(--clr-duvar);
+    font-family: 'Courier New', Courier, monospace;
+    min-height: 100vh;/*sayfa yüksekliği ekran boyutu kadar olsun en az*/
+    display: flex;
+    flex-direction: column;/*Elemanları yan yana değil alt alta diz */
+}
+a{
+    text-decoration: none;
+    color: var(--clr-link);
+}
+.kapakfotosu{
+    width: 140px; 
+    height: 220px; 
+    object-fit: cover;
+    border-radius:0px 15px 0px 0px ;
+    box-shadow:5px 5px 10px rgba(0,0,0,0.4);
+    cursor: pointer;
+
+}
+.kapakfotosu:hover{
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 10px 15px 20px rgba(0,0,0,0.6);
+}
+.raf{
+    border-bottom:10px solid var(--clr-raf);
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; /*Kitapların altını hizalar. Biri kısa biri uzun olsa bile hepsi rafa basar */
+    gap:30px;
+    margin: 50px auto;
+    padding-bottom: 0;
+    box-shadow: 0px 15px 10px -5px rgba(0,0,0,0.3);
+}
+.header{
+    background-color: var(--clr-header);
+}
+.main{
+    flex: 1;/*Geriye kalan tüm boşluğu main kaplasın
+    bu sayede footer en altta kalır*/
+
+}
+.footer{
+    background-color:var(--clr-footer) ;
+    color: aliceblue;
+    text-align: center;
+    border-top: 2px solid var(--clr-rafgolge);
+    
+}
