@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS notlarım</title>
+</head>
+<body>
+<!--not 1
+list-style-type:none/square/upper-roman/lower-alpha;
+text-decoration:none/underline/overline/line-through;çizgi çeker
+text-transform:uppercase/lowercase/capitalize;metin dönüşümü
+text-shadow: x-offset y-offset blur-radius color;metin gölgesi
+text-align: left/center/right/justify;metin hizalama
+text-align:justify; iki yana yaslama
+font-size: px/em/rem/% büyüklük ayarı
+font-weight: normal/bold/100-900 kalınlık ayarı
+font-family: Arial, sans-serif; yazı tipi ayarı
+font-style: normal/italic/oblique yazı tipi stili ayarı
+word-spacing: px/em/rem/% kelime aralığı ayarı
+letter-spacing: px/em/rem/% harf aralığı ayarı
+word-wrap: normal/break-word; kelime kaydırma ayarı
+word-break: normal/break-all; kelime kırma ayarı
+color: renk adı/hexadecimal/rgb/hsl; yazı rengi ayarı
+text-align: left/center/right/justify; metin hizalama ayarı
+background-color: renk adı/hexadecimal/rgb/hsl; arka plan rengi ayarı
+margin: px/em/rem/% dış boşluk ayarı
+padding: px/em/rem/% iç boşluk ayarı
+border: kalınlık stili renk; kenarlık ayarı
+display: block/inline/inline-block/flex/grid; eleman görüntüleme ayarı
+position: static/relative/absolute/fixed/sticky; eleman konumlandırma ayarı
+top/right/bottom/left: px/em/rem/%; konum ayarı
+z-index: sayı; katman sırası ayarı
+overflow: visible/hidden/scroll/auto; taşma ayarı
+cursor: default/pointer/text; imleç stili ayarı
+box-shadow: x-offset y-offset blur-radius spread-radius color; kutu gölgesi ayarı
+border-radius: px/em/rem/%; kenar yuvarlama ayarı 
+flex-direction: row/column; flex yönü ayarı
+justify-content: flex-start/center/flex-end/space-between/space-around; flex içerik hizalama ayarı
+align-items: stretch/flex-start/center/flex-end/baseline; flex öğe hizalama ayarı
+grid-template-columns: repeat(number, size); grid sütun ayarı   
+grid-template-rows: repeat(number, size); grid satır ayarı
+grid-gap: px/em/rem/%; grid boşluk ayarı
+box-sizing: content-box/border-box; kutu boyutlandırma ayarı
+box-model: content, padding, border, margin; kutu modeli
+media queries
+-@media only screen and (max-width: 600px) {
+    /* Küçük ekranlar için stil ayarları */
+}
+-->
+
+<!--not 2
+div, span, p, h1-h6, a, ul, ol, li, img, nav, header, 
+footer, section, article, aside, main, form, input, button, 
+label, textarea, select, option
+//div: blok eleman, satırın tamamını kaplar
+<div>
+  Merhaba dünya
+</div>
+Görünmez bir kutu oluşturur.İçinde “Merhaba dünya” yazar
+kutuyu görünür yapmak için CSS ile stil verilir.
+overflow: auto; eklenirse kutu taşarsa kaydırma çubuğu ekler
+overflow: hidden; eklenirse kutu taşarsa taşan kısmı gizler
+overflow: visible; eklenirse kutu taşarsa taşan kısmı gösterir
+overflow: scroll; eklenirse kutu taşarsa her zaman kaydırma çubuğu ekler
+overflow-x: yatay taşma ayarı
+overflow-y: dikey taşma ayarı
+<div class="kutu">
+  İçerik
+</div>
+.kutu {
+  width: 200px;
+  height: 100px;
+  background-color: lightblue;
+  border: 2px solid black;
+  overflow: auto;
+}
+Div’in önemli özellikleri 
+Block elementtir
+Satırın tamamını kaplar
+Altına geçer
+Varsayılan görünümü yok
+CSS vermezsen görünmez
+
+//span: satır içi eleman, sadece içeriği kaplar
+<p>
+  Bu yazının <span>önemli</span> kısmı
+</p>
+span {
+  color: red;
+  font-weight: bold;
+}
+
+Sadece “önemli” kelimesi değişir
+span özellikleri
+Inline elementtir
+Alt satıra geçmez
+Genişlik / yükseklik almaz (width, height çalışmaz)
+Satır akışını bozmaz
+
+span kutu değildir o yüzden weight, height çalışmaz
+span=fosforlu kalem gibi düşünebiliriz
+
+nav : navigasyon menüsü için kullanılır
+header : sayfa veya bölüm başlığı için kullanılır
+footer : sayfa veya bölüm altbilgisi için kullanılır
+section : sayfa bölümleri için kullanılır
+article : bağımsız içerik parçaları için kullanılır
+aside : yan içerik veya ek bilgiler için kullanılır
+main : ana içerik alanı için kullanılır
+form : kullanıcı giriş formları için kullanılır
+input : kullanıcıdan veri almak için kullanılır
+button : buton oluşturmak için kullanılır
+label : form elemanları için etiket oluşturmak için kullanılır
+textarea : çok satırlı metin girişi için kullanılır
+select : açılır liste oluşturmak için kullanılır
+option : açılır liste seçenekleri için kullanılır
+img : resim eklemek için kullanılır
+a : bağlantı oluşturmak için kullanılır
+ul : sırasız liste oluşturmak için kullanılır
+ol : sıralı liste oluşturmak için kullanılır
+li : liste öğesi oluşturmak için kullanılır
+--> 
+
+<!--not 3
+group selectors
+* tüm etiketleri seçer
+p, h1, h2 {color: blue;} tüm p,h1,h2 etiketlerini mavi yapar
+div,p {margin:10px;} div ve p etiketlerine 10px margin verir
+div p {color:red;} div içindeki tüm p etiketlerini kırmızı yapar
+div>p {color:green;} div'in direkt altındaki p etiketlerini yeşil yapar
+p ~ div {color:orange;} p etiketinden sonra gelen tüm div etiketlerini turuncu yapar
+p + div {color:purple;} p etiketinden hemen sonra gelen div etiketini mor yapar
+id selectors
+#header {background-color: yellow;} id'si header olan elementi sarı yapar
+
+class selectors
+.box {border: 1px solid black;} class'ı box olan elementlere siyah
+    kenarlık verir
+
+attribute selectors
+input[type="text"] {border: 1px solid blue;} type'ı text olan
+    input elementlerine mavi kenarlık verir
+    input typei password,text,email,number vs olabilir
+p[title=~forth] {color: green;} title
+    attribute'unda forth yazan paragrafları yeşil yapar mesela forth paragraf
+ title^=start  title attribute'u start ile başlayanları seçer
+ title$=end    title attribute'u end ile bitenleri seçer
+
+pseudo-class selectors 
+ a:hover {color: red;} fare ile üzerine gelindiğinde
+    bağlantı rengini kırmızı yapar
+li:nth-child(odd) {background-color: lightgray;} tek
+    numaralı liste öğelerinin arka planını açık gri yapar
+li:nth-child(even) {background-color: white;} çift
+    numaralı liste öğelerinin arka planını beyaz yapar
+input[type="text"]:focus {border: 2px solid green;} type'ı
+    text olan input elementine odaklanıldığında yeşil kenarlık verir
+
+:active  tıklanma anında
+:visited ziyaret edilmiş bağlantılar
+:first-child  ilk çocuk elementi
+:link  ziyaret edilmemiş bağlantılar
+:focus  odaklanıldığında
+
+pseudo-element selectors
+p::first-letter {font-size: 200%;} paragrafın ilk harfini
+    %200 büyütür
+p::first-line {font-weight: bold;} paragrafın ilk
+    satırını kalın yapar
+p::before {content: "Başlangıç - ";} paragrafın
+    başına "Başlangıç -" ekler
+p::after {content: " - Bitiş";} paragrafın sonuna " - Bitiş" ekler
+
+
+combination selectors
+div#header {background-color: lightblue;} id'si header
+    olan div elementini açık mavi yapar
+ul.menu li {margin: 5px;} class'ı menu olan ul içindeki
+    tüm li elementlerine 5px margin verir
+a.button:hover {background-color: green;} class'ı button
+    olan bağlantıya fare ile gelindiğinde arka planı yeşil yapar
+child selectors
+div > p {color: blue;} div'in direkt altındaki tüm p
+    etiketlerini mavi yapar
+
+descendant selectors
+div p {color: red;} div içindeki tüm p etiketlerini kırmızı yapar
+sibling selectors
+h2 + p {font-size: 18px;} h2 etiketinden hemen sonra
+    gelen p etiketinin yazı boyutunu 18px yapar
+h2 ~ p {color: gray;} h2 etiketinden sonra gelen
+    tüm p etiketlerini gri yapar
+
+specificity (özgüllük)
+inline style > id selector > class selector > element selector
+örneğin:
+<p id="para1" class="text" style="color: green;">Merhaba</p>
+burada style en yüksek özgüllüğe sahip olduğu için
+yazı rengi yeşil olur.
+-->
+ 
+<!--not 4
+inheritance (miras alma)
+Bazı CSS özellikleri varsayılan olarak miras alınır,
+örneğin color, font-family gibi. Diğer özellikler ise
+miras alınmaz, örneğin margin, padding gibi.
+
+bir özellik değişmesin istiyorsan important kullanabilirsin
+<p style="color: blue !important;">Bu yazı mavi olacak</p>
+
+a{color: inherit;} a etiketleri içinde bulunduğu
+elementin rengini alır bir üst elementten miras alır li ise linin özelliğirini p ise onunkini alır
+
+-->
+<!--not 5
+h2.active      <h2 class="active">
+h2 .active     <h2> içindeki class="active"
+<h2 class="active">Başlık</h2>  
+h2.active {
+  color: red;
+}Sadece h2 olup active class’ına sahip olan seçilir.
+
+<h2>
+  <span class="active">Başlık</span>
+</h2>
+h2 .active {
+  color: red;
+}h2 değil, onun içindeki başka bir eleman seçilir.
+
+id içinde aynı şey geçerli 
+p#paragraf gibi bitişik olmalı
+-->
+
+<!--not 6-->
+<!--Tablo oluşturma
+tablo etiketi ile başlar ve biter
+thead: tablonun ilk satrını belirtir
+caption: tablo başlığı ekler
+<tbody: tablo gövdesi
+<tr> tablo satırı
+<th>başlık hücresi</th>
+<td>veri hücresi</td>
+
+<table>
+  <tr> tablo satırı
+    <th>başlık hücresi</th>
+    <th>başlık hücresi</th>
+  </tr>
+  <tr>
+    <td>veri hücresi</td>
+    <td>veri hücresi</td>
+  </tr>
+</table>
+başlık hücresi için th, veri hücresi için td kullanılır
+Satır için tr kullanılır
+Tabloya kenarlık eklemek için border özelliği kullanılır
+
+-->
+
+<!--not 7
+
+float: left/right/none; elemanı sola/sağa hizalar
+clear: left/right/both/none; float etkisini temizler
+örneğin resmi sola hizalayıp yazınında onun etrafında olmasını istersen
+float:left; yaparsın yazıyla bitişik olmasın diye de margin rightla boşluk verirsin
+img {
+  float: left;
+  margin-right: 10px; /* resimin sağına boşluk ekler */
+}
+float ile display flex farkı:
+float sadece elemanı sola veya sağa hizalar layout için değil, diğer elemanlar onun etrafında akar.
+display:flex ise bir konteyner içindeki tüm elemanları esnek bir şekilde hizalar ve düzenler.
+
+img inline elemnt p ile birlikte kullanılır.
+layout için display flex kullanılır.peki divleri sağa hizalamak için float mı flex mi?
+layout için flex.düzenini nasıl yapıcaz?
+.container {
+  display: flex;
+  justify-content: flex-end; /* elemanları sağa hizalar */
+}
+justify-content:flex-start; sola hizalar
+justify-content:center; ortaya hizalar
+justify-content:space-between; aralarına boşluk bırakır
+justify-content:space-around; aralarına eşit boşluk bırakır
+-->
+
+
+
+
+<!--Tablo oluşturma-->
+<style>
+    .urun-tablosu {
+       width:100%;
+       border-collapse: collapse;
+    
+    }
+    .urun-tablosu thead tr{
+        background-color: rgba(163, 63, 63, 0.644);
+    }
+    .urun-tablosu tbody tr:nth-child(odd){
+        background-color: rgb(228, 224, 224);
+    }
+    .urun-tablosu tbody tr:hover{
+        background-color: rgba(152, 225, 141, 0.736);
+        cursor: pointer;
+    }
+    .urun-tablosu th,.urun-tablosu td{
+        padding:10px;
+        text-align: left;
+    }
+
+</style>
+  
+<table class="urun-tablosu"border="1px">
+    <caption>
+        ürün ve fiyatları tablosu
+    </caption>
+    <thead>
+    <tr>
+        <th>Ürün Listesi</th>
+        <th>Açıklama</th>
+        <th>Fiyat</th>
+    </thead>
+    <tbody>
+    <tr>
+        <td>ürün1</td>
+        <td>Lorem ipsum dolor sit amet.</td>
+        <td>10tl</td>
+    </tr>
+    <tr>
+        <td>ürün2</td>
+        <td>Lorem ipsum dolor sit amet.</td>
+        <td>18tl</td>
+    </tr>
+    <tr>
+        <td>ürün3</td>
+        <td>Lorem ipsum dolor sit amet.</td>
+        <td>20tl</td>
+    </tr>
+    <tr>
+        <td>ürün4</td>
+        <td>Lorem ipsum dolor sit amet.</td>
+        <td>30tl</td>
+    </tr>
+    <tr>
+        <td>ürün5</td>
+        <td>Lorem ipsum dolor sit amet.</td>
+        <td>39tl</td>
+    </tr>
+    </tbody>
+
+</table>
+<p style="width: 100%; height: 5px; background-color: #000000; text-align: center;"></p>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<!--Div örnek-->
+<style>
+    #container {
+         width: 1140px;
+        margin: auto;
+        background-color: plum;
+        display: flex;
+        gap: 20px; /* aralarına boşluk */
+    }
+
+    #blog-post-container {
+        width: 75%;
+        border: 1px solid #ccc;
+        padding: 10px;
+        background-color: rgba(75, 112, 112, 0.409);
+    }
+
+    .blog-post {
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #090909;
+        background-color: lightpink;
+    }
+
+    .blog-post h2 {
+        margin: 0;
+        color: #333;
+    }
+
+    .date {
+        font-size: 0.9em;
+        color: #999;
+    }
+
+    .blog-text {
+        font-size: 1em;
+        color: #555;
+    }
+
+    #other-posts {
+        width: 25%;
+        border: 1px solid #1b1b1b;
+        padding: 10px;
+        background-color: bisque;
+    }
+
+    .other {
+        margin-bottom: 10px;
+        font-size: 0.95em;
+        color: #666;
+    }
+
+    .author-box {
+        margin-top: 20px;
+        padding: 10px;
+        border: 1px solid #ce2727;
+        text-align: center;
+    }
+
+    .author-box img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 50%;
+    }
+</style>
+
+<div id="container">
+    <div id="blog-post-container">
+        <div class="blog-post">
+            <h2>Blog Post 1</h2>
+            <p class="date">18.12.25</p>
+            <p class="blog-text">Bu, blog postunun içeriğidir. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+        <div class="blog-post">
+            <h2>Blog Post 2</h2>
+            <p class="date">19.01.10</p>
+            <p class="blog-text">Bu, ikinci blog postunun içeriğidir. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+        <div class="blog-post">
+            <h2>Blog Post 3</h2>
+            <p class="date">19.02.05</p>
+            <p class="blog-text">Bu, üçüncü blog postunun içeriğidir. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+        </div>
+
+        
+    </div>
+
+    <div id="other-posts">
+        <p class="other">
+            Lorem ipsum dolor sit amet.
+        </p>
+        <p class="other">
+            Lorem ipsum dolor sit amet.
+        </p>
+        <p class="other">
+            Lorem ipsum dolor sit amet.
+        </p>
+    </div>
+    <div class="author-box">
+        <i class="fa-solid fa-user"></i>
+    </div>
+
+
+</div>
+<p style="width: 100%; height: 5px; background-color: black;"></p>
+
+<!-- float ve clear kullanımı -->
+ <style>
+    .resim{
+        float: left;
+        margin-right: 15px;
+        width: 200px;
+        height: 200px;
+    }
+    p{
+        border: 1px solid black;
+        padding: 10px;
+        text-align: justify;
+    }
+    .clear{
+        overflow:auto ;
+    }
+
+ </style>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi modi mollitia dicta quibusdam nobis ipsum, cum minima dolorum maiores molestiae nulla explicabo, veritatis beatae similique iste unde asperiores facilis aut sint accusantium. Pariatur eveniet omnis asperiores quasi enim laudantium dicta?</p>
+<p class="clear">
+    <img class="resim" alt="resim">
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, nisi! Officia enim molestiae porro commodi, numquam quasi dolor officiis. Omnis corrupti architecto, impedit sit facere officiis et a sunt cupiditate quasi eveniet dolorem hic repellendus vel atque tenetur placeat quaerat minima!
+</p>
+
+<p style="width: 100%; height:5px; background-color: black;"></p>
+<p>span inline elementtir ama display block yapabilirsin
+<span style="display: block; width: 100px; height: 50px; background-color: lightblue;">Bu bir blok span</span>
+</p>
+
+
+
+
+</body>
+</html>
