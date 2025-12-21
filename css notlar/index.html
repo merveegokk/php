@@ -13,6 +13,11 @@ text-transform:uppercase/lowercase/capitalize;metin dönüşümü
 text-shadow: x-offset y-offset blur-radius color;metin gölgesi
 text-align: left/center/right/justify;metin hizalama
 text-align:justify; iki yana yaslama
+column-count:number; sütun sayısı
+-webkit-column-count:number; sütun sayısı (Google,Opera,Safari için)
+-moz-column-count:number; sütun sayısı (Firefox için)
+column-gap: px/em/rem/%; sütunlar arası boşluk
+column-rule: kalınlık stil renk; sütun ayırıcı çizgi
 font-size: px/em/rem/% büyüklük ayarı
 font-weight: normal/bold/100-900 kalınlık ayarı
 font-family: Arial, sans-serif; yazı tipi ayarı
@@ -34,6 +39,8 @@ z-index: sayı; katman sırası ayarı
 overflow: visible/hidden/scroll/auto; taşma ayarı
 cursor: default/pointer/text; imleç stili ayarı
 box-shadow: x-offset y-offset blur-radius spread-radius color; kutu gölgesi ayarı
+box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75); kutu gölgesi örneği
+! box shadow kullanmak için -webkit-box-shadow ekle.
 border-radius: px/em/rem/%; kenar yuvarlama ayarı 
 flex-direction: row/column; flex yönü ayarı
 justify-content: flex-start/center/flex-end/space-between/space-around; flex içerik hizalama ayarı
@@ -285,6 +292,102 @@ justify-content:space-between; aralarına boşluk bırakır
 justify-content:space-around; aralarına eşit boşluk bırakır
 -->
 
+<!--not 8
+position: static/relative/absolute/fixed/sticky; eleman konumlandırma ayarı
+top/right/bottom/left: px/em/rem/%;
+z-index: sayı; katman sırası ayarı
+static: varsayılan konumlandırma türüdür. Eleman normal akışta yer alır.
+relative: eleman normal konumundan göreli olarak konumlandırılır.
+absolute: eleman en yakın konumlandırılmış üst öğeye göre konumlandırılır.
+fixed: eleman pencereye göre sabitlenir, sayfa kaydırılsa bile sabit kalır.
+sticky: eleman belirli bir konuma kadar normal akışta yer alır,sonra sabitlenir.mesela 
+menü çubuğu yaparken kullanılır.0
+-->
+<!--not 9
+
+button: buton oluşturmak için kullanılır
+details: gizlenebilir içerik oluşturmak için kullanılır
+summary: details etiketi içinde başlık oluşturmak için kullanılır
+Kitapların "Özetini Oku" kısmı için mükemmeldir.
+<details>
+    <summary>Özeti Oku</summary>
+    <p>Bu kitap, Anna'nın trajik hikayesini anlatır...</p>
+</details>
+summary {
+    cursor: pointer; /* Üzerine gelince el işareti çıksın */
+    color: var(--clr-link);
+    font-weight: bold;
+    list-style: none; /* Yandaki küçük ok işaretini kaldırmak istersen */
+}
+dialog: modal pencere oluşturmak için kullanılır
+meter: belirli bir aralıkta ölçüm göstergesi için kullanılır
+progress: ilerleme çubuğu oluşturmak için kullanılır
+select: açılır liste oluşturmak için kullanılır
+option: açılır liste seçenekleri için kullanılır
+Kitapları filtrelemek için (Örn: Roman, Bilim Kurgu, Tarih) kullanılan, tıkladığında aşağı doğru liste açan etikettir.
+<select class="filtre">
+    <option>Tüm Kitaplar</option>
+    <option>Roman</option>
+    <option>Şiir</option>
+    <option>Tarih</option>
+</select>
+input:Kütüphanene bir "Kitap Arama" çubuğu yapmak istersen bunu kullanırsın. Kullanıcının yazı yazabildiği kutudur.
+<input type="text" class="arama-cubugu" placeholder="Kitap ara...">
+.arama-cubugu {
+    padding: 10px;
+    border-radius: 20px; /* Kenarları yuvarlat */
+    border: 1px solid #ccc;
+    width: 200px;
+    outline: none; /* Tıklayınca çıkan mavi çerçeveyi kaldır */
+}
+-->
+<!--not 10
+Transition: özellik süre zamanlama-fonksiyonu gecikme;
+örneğin butona fare ile gelince renginin değişmesini istersen
+
+button {
+    background-color: lightblue;
+    transition: background-color 0.3s ease; /* Arka plan rengini 0.3 saniyede değiştir */
+}
+button:hover {
+    background-color: blue; /* Fare ile üzerine gelince mavi yap */
+}
+transition özellikleri:
+özellik: değişimini istediğin CSS özelliğini (örneğin, background-color,
+color, width, height, opacity)ilk parametre olarak yazarsın
+süre: değişimin ne kadar süreceği (örneğin, 0.3s, 500ms)
+transition-timing-function: değişimin hız eğrisi (örneğin, ease, linear, ease-in, ease-out)
+transition-delay: değişimin başlaması için bekleme süresi (örneğin, 0s, 0.5s)
+Transform: translateX(px/em/rem/%) translateY(px/em/rem/%) scale(factor) rotate(degree);
+örneğin butona fare ile gelince büyümesini istersen     
+-webkit kullan.
+
+-->
+
+<!--not 11
+background-image: url("resim.jpg"); arka plan resmi ekler
+background-size: cover/contain/px/em/rem/%; arka plan resmi boyutu
+linear-gradient(direction, color-stop1, color-stop2, ...);
+arka plan gradyanı oluşturur
+örneğin arka plan resmi eklemek için
+body {
+    background-image: url("arka-plan.jpg");
+    background-size: cover; /* Arka plan resmini kapsayacak şekilde ayarla */
+    background-position: center; /* Arka plan resmini ortala */
+    background-repeat: no-repeat; /* Arka plan resminin tekrarlanmamasını sağla */
+    linear-gradient(to right, red, yellow); /* Soldan sağa kırmızıdan sarıya geçiş */
+    clip-path: circle(50% at 50% 50%); /* Daire şeklinde kırpma */
+}
+clip-path şekilleri:
+circle(): Daire şeklinde kırpar.
+ellipse(): Elips şeklinde kırpar.
+polygon(): Çokgen şeklinde kırpar.
+inset(): Dikdörtgen şeklinde kırpar.
+
+
+
+
+-->
 
 
 
@@ -488,6 +591,107 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, nisi! Offic
 <p>span inline elementtir ama display block yapabilirsin
 <span style="display: block; width: 100px; height: 50px; background-color: lightblue;">Bu bir blok span</span>
 </p>
+
+<p style="width: 100%;height: 5px; background-color: #000000;"></p>
+
+<!--position örnek-->
+<style>
+    .box{
+        width: 100px;
+        height: 100px;
+       
+    }
+    #first{
+        background-color: red;
+        
+    }
+    #second{
+        background-color:blue;
+        position:relative;/*box1in altından 50px aşağı indi*/
+        top:50px;
+        left:30px;
+    }
+    #third{
+        background-color:green;
+        position:fixed;/*sayfanın sol üst köşesinden 70px aşağı ve 150px sağa gitti*/
+        top:0px;
+        right:0px;
+        width: 50px;
+        height: 50px;
+    }
+</style>
+<div class="box" id="first">box1</div>
+<div class="box" id="second">box2</div>
+<div class="box" id="third">position fixed</div>
+
+
+<style>
+    .columns{
+    text-align:left;
+    column-count:3;
+    column-rule:2px solid salmon;
+    border-color: aliceblue;
+    margin-top: 50px;
+    }
+
+</style>
+
+<p class="columns">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi modi mollitia dicta quibusdam nobis ipsum, cum minima dolorum maiores molestiae nulla explicabo, veritatis beatae similique iste unde asperiores facilis aut sint accusantium. Pariatur eveniet omnis asperiores quasi enim laudantium dicta?</p>
+<p style="width: 100%;height: 5px; background-color: #000000;"></p>
+
+<!--box shadow ve transform örnek-->
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    .card{
+        width:40%;
+        margin: 10px;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        border-radius: 5px;
+        transition:box-shadow 0.3s ease;
+        border: none;
+    }
+    .card-image{
+        width:100%;
+        height:auto;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        transition: opacity 200ms ease;
+    }
+    .card-title{
+        font-size:20px;
+        font-weight:bold;
+        margin:10px 0;
+    }
+    .card-image:hover{
+        opacity: 0.8;
+    }
+    .card:hover{
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.3);
+    }
+    .card-body{
+        padding:2px 16px;
+        border: none;
+    }
+
+
+
+</style>
+
+
+<div class="card">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSajpK8vgxDqWxpyEIbG3DzdHMTZ5rBuLj_DQ&s" alt="resim" class="card-image">
+    <div class="card-body">
+        <h4 class="card-title">Card title</h4>
+        <p class="card-text">Card body</p>
+    </div>
+</div>
+
+
+
 
 
 
