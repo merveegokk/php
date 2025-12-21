@@ -50,10 +50,7 @@ grid-template-rows: repeat(number, size); grid satır ayarı
 grid-gap: px/em/rem/%; grid boşluk ayarı
 box-sizing: content-box/border-box; kutu boyutlandırma ayarı
 box-model: content, padding, border, margin; kutu modeli
-media queries
--@media only screen and (max-width: 600px) {
-    /* Küçük ekranlar için stil ayarları */
-}
+
 -->
 
 <!--not 2
@@ -385,7 +382,50 @@ polygon(): Çokgen şeklinde kırpar.
 inset(): Dikdörtgen şeklinde kırpar.
 
 -->
+<!--not 12
+media queries: responsive tasarım için kullanılır
+<meta name="viewport" content="width=device-width, initial-scale=1">
+@media only screen and (max-width: 600px) {
+    /* Küçük ekranlar için stil ayarları */
+}
+-->
+<!--not 13
+tooltip: fare ile üzerine gelince bilgi kutusu gösterir
+tooltip oluşturma:
+.tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%; /* Tooltip'in yukarıda görünmesini sağlar */
+    left: 50%;
+    margin-left: -60px; /* Tooltip'i ortalar */
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+örneğin:
+<div class="tooltip">Fare ile üzerine gel
+    <span class="tooltiptext">Tooltip metni</span>
+</div>
 
+
+
+
+-->
 
 
 <!--Tablo oluşturma-->
