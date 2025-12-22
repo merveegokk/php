@@ -1,0 +1,130 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    font-size: 7px;
+}
+
+
+body{
+
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.6rem;
+  line-height: 1.5;
+  text-align: center;
+  color: white;
+  background-color: #333;
+ 
+}
+a{
+    text-decoration: none;
+}
+
+p{
+    padding: 1.6rem 0;
+}
+img{
+    width: 100%;
+    height: auto;
+}
+.clearfix::after{
+    content: "";
+    display: block;
+    clear: both;
+
+}
+header{
+    height: 45rem; 
+    position: relative; 
+}
+header .bg-image{
+    position: relative;
+    background-image:url(anafoto.png) ;  
+    background-size:cover;
+    background-position: center;
+    height:45rem;
+    width: 100%;
+    opacity: 0.4;
+    
+
+}
+.content{
+    position: absolute;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+}
+.btn{
+    display: inline-block;
+    color: white;
+    background-color: #333;
+    border: 1px solid aliceblue;
+    padding: 1rem 3rem;
+    margin: 0.5rem 0;
+    transition: all 0.3s ease;
+}
+.btn:hover{
+    background-color: aliceblue;
+    color: #333;
+}
+#about{
+    background-color: rgb(254, 254, 243);
+    color: #333;
+    padding: 3.2rem;
+}
+#services{
+    padding:2rem;
+    
+
+}
+#services ul {
+    list-style: none;
+    
+}
+.card{
+    background-color: #fff;
+    color: #333;
+    margin-bottom: 1.5rem;
+}
+.card-body{
+    padding: 1.5rem;
+}
+#reason{
+    background-color: #eaeaea;
+    color: #333;
+    padding: 1.5rem;
+
+}
+#contact .box{
+    padding: 2.5rem;
+    
+}
+#contact .box:first-child{
+    background-color:#2690d4;
+}
+footer{
+    padding: 4rem;
+    background-color: rgb(0, 0, 0); 
+      
+}
+footer a{
+    color: #2690d4;;
+}
+@media screen and (min-width:700px){
+    #services li{
+        width: 28%;
+        margin: 1%;
+        display: inline-block;
+    }
+    .box{
+        width: 50%;
+        float: left;
+    }
+    html{
+        font-size:10px; 
+    }
+
+    
+}
