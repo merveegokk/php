@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display alistirma</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        
+            
+        }
+        .header{
+            padding: 30px;
+            text-align: center;
+            background-color: goldenrod;
+            color: aliceblue;
+            
+        }
+        .navbar{
+            display: flex;
+            background-color: #414040;
+            
+            
+        }
+        .navbar a{
+            padding: 10px 20px;
+            text-decoration: none;
+            color: aliceblue;
+            text-align: center;
+        }
+        .navbar a:hover{
+            background-color: rgb(255, 230, 197);
+            color: black;
+            transition: 0.3s;
+        }
+        main{
+            display: flex;
+
+        }
+        #sidebar{
+            background-color:cornsilk;
+            flex: 25%;
+            padding: 20px;
+
+        }
+        #content{
+            
+            flex: 75%;
+            padding: 20px;
+        }
+        .ph{
+            background-color: #aaa;
+            width:100% ;
+            padding: 20px;
+            margin-top: 10px;
+        }
+        
+        @media screen and (max-width:600px) {
+            main,.navbar {
+                flex-direction: column;
+            }
+            #sidebar{
+                order:-1;
+            }
+            
+        }
+    
+        
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1>Lorem, ipsum dolor</h1>
+        <p>Lorem ipsum dolor sit amet.</p>
+
+    </div>
+    <div class="navbar">
+        <a href="#">Link 1</a>
+        <a href="#">Link 2</a>
+        <a href="#">Link 3</a>
+        <a href="#">Link 4</a>
+    </div>
+    <main>
+      <div id="sidebar">
+        <div id="box">
+            <h2>Lorem, ipsum.</h2>
+            <div class="ph" style="height: 200px;"></div>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laborum praesentium quis amet numquam et inventore!</p>
+        </div>
+        <div class="ph" style="height: 50px;"></div>
+            <div class="ph" style="height: 50px;"></div>
+            <div class="ph" style="height: 50px;"></div>
+
+      </div>
+      <div id="content">
+        <div id="box">
+            <h2>Lorem, ipsum.</h2>
+            <div class="ph" style="height: 200px;"></div>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laborum praesentium quis amet numquam et inventore!</p>
+            
+        </div>
+        <div id="box">
+            <h2>Lorem, ipsum.</h2>
+            <div class="ph" style="height: 200px;"></div>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laborum praesentium quis amet numquam et inventore!</p>
+        </div>
+
+        
+      </div> 
+
+
+
+
+
+
+
+
+
+    </main>
+
+    
+</body>
+</html>

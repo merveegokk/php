@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        .container{
+            display: flex;
+            background-color: #c1bcbc;
+            padding: 15px;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: stretch;
+        }
+        div.container .item:first-child{
+               height: 150px;
+        }
+        #i1{
+           
+            flex-grow: 9;
+        
+        }
+        .item{
+            background-color: #4CAF50;
+            padding: 40px;
+            margin: 30px;
+            flex-grow: 1;
+            color: white;
+            font-size: 30px;
+
+        }
+    </style>
+</head>
+<body>
+    <!-- Display Flex
+     flex-direction: row, column,row-reverse, column-reverse
+     elemanların yönünü belirler
+     flex-direction: row; yatay hizalama kullanırsan 
+     justify-content ile yatay hizalarsın
+     align-items ile dikey hizalarsın
+
+     flex-direction: column; dikey hizalama kullanırsan
+     justify-content ile dikey hizalarsın
+     align-items ile yatay hizalarsın
+     
+     justify-content dikdörtgenin uzun kenarı boyunca hizalama yapar
+     align-items dikdörtgenin kısa kenarı boyunca hizalama yapar
+
+     flex-wrap: nowrap, wrap, wrap-reverse
+     sığmayan elemanlar için yeni satır oluşturur
+     flex-flow: direction wrap
+     
+     justify-content: flex-start, flex-end, center, space-between, 
+     space-around(sağ ve soldaki boşluklar eşit itemlar arasındaki mesafeler eşit ayarlanır ),
+     space-evenly (sağı solu ve itemlar arasındaki boşluklar eşit olur hepsi eşit dağıtılır)
+     büyük konteynerin içindeki elemanları yatayda hizalar
+     
+     align-items:konteyner içindeki elemanları dikeyde hizalar
+     flex-start, flex-end, center, 
+     baseline: metinlerin baz çizgisine göre hizalar 
+     stretch: varsayılan tüm yüksekliği kaplar//default özelliktir
+     eğer değiştirmezsen tüm elemanlar konteynerin yüksekliğini kaplar ya da 
+     bir elemanın yüksekliği diğerlerinden fazla ise diğerleri de o yüksekliğe göre ayarlanır
+
+     
+     align-content: flex-start, flex-end, center, space-between, space-around, stretch
+     birden fazla satır varsa dikeyde hizalar
+     
+     align-self: auto, flex-start, flex-end, center, baseline, stretch
+     tek bir elemanın hizalamasını değiştirir
+     
+     order: elemanların sırasını değiştirir
+     flex-grow:1; elemanların boşluk kaplama oranını belirler //büyüme
+     flex-shrink:0; elemanların küçülme oranını belirler //daralma
+     flex-shrink:0 dersen ekran küçüklse bile scroll bar oluşur itemin içeriği küçülmez
+     flex-basis: auto; elemanların başlangıç boyutunu belirler
+     flex: flex-grow flex-shrink flex-basis diye tek satırda yazılabilirsin
+     örnek: flex: 1 0 auto;
+
+     margin:auto; elemanı ortalar
+     margin-top:auto; elemanı dikeyde alta yaslar
+     margin-bottom:auto; elemanı dikeyde üste yaslar
+     margin-left:auto; elemanı yatayda sağa yaslar
+     margin-right:auto; elemanı yatayda sola yaslar
+
+
+    **Flexbox ile Grid Arasındaki Farklar**
+    grid iki boyutlu flexbox tek boyutlu
+    grid satır ve sütunlarla çalışır    
+    flexbox tek bir eksende çalışır
+    grid kapsayıcı ve öğeler arasında boşluk bırakmak daha kolay
+    grid ile karmaşık düzenler oluşturmak daha kolay
+    grid ile responsive tasarım yapmak daha kolay
+    flexbox ile küçük düzenler oluşturmak daha kolay
+    grid ile büyük düzenler oluşturmak daha kolay
+    grid ile öğeleri tam olarak istediğin yere yerleştirebilirsin
+    flexbox ile öğeleri sırayla yerleştirirsin
+    grid ile öğeleri hizalamak daha kolay
+    flexbox ile öğeleri hizalamak daha esnektir
+    grid ile öğeleri boyutlandırmak daha kolay
+    flexbox ile öğeleri boyutlandırmak daha esnektir
+    grid ile öğeleri katmanlara ayırmak daha kolay
+    flexbox ile öğeleri katmanlara ayırmak daha zordur
+    Grid ve Flexbox birlikte kullanılabilir
+    grid ile ana düzen oluşturulur
+    flexbox ile iç öğeler hizalanır
+
+        
+
+    -->
+     
+
+    
+
+<div class="container">
+        <div class="item" id="i1">item1</div>
+        <div class="item">item2</div>
+        <div class="item" id="i3">item3</div>
+        <div class="item">item4</div>
+        <div class="item">item5</div>
+        <div class="item">item6</div>
+        <div class="item">item7</div>
+        <div class="item">item8</div>
+</div>
+
+
+<style>
+   
+    .navigation{
+        list-style: none;
+        display: flex;  
+        justify-content: flex-end;
+        background-color: goldenrod;
+        color: aliceblue;
+        padding: 10px;
+        
+        
+        
+    }
+    .navigation a{
+        padding: 15px;
+        text-decoration: none;
+        color: white;
+        display: block;      
+
+    }
+    .navigation a:hover{
+        background-color: darkorange;
+        transition: 0.3s;
+    }
+    @media all and (max-width:800px) {
+        .navigation{
+            justify-content: space-between;
+        }
+        
+    }
+    @media all and (max-width:600px) {
+        .navigation{
+            flex-direction: column;       
+        }
+        .navigation a{
+            text-align: center;
+            padding: 10px;
+            border-bottom: 1px solid rgba(238, 227, 227, 0.268);
+            border-top: 1px solid rgba(238, 227, 227, 0.109);
+        }
+        
+    }
+</style>
+
+    <ul class="navigation">
+        <li>
+            <a href="#">Home</a>
+        </li>
+        <li>
+            <a href="#">About</a>
+        </li>
+        <li>
+            <a href="#">Products</a>
+        </li>
+        <li>
+            <a href="#">Contact</a>
+        </li>
+        
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Bootstrap CSS -->
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
